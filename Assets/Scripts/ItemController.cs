@@ -17,11 +17,10 @@ public class ItemController : MonoBehaviour
     Vector3 targetPos;
 
     float speed = 15f;
-    float adjustHeight = 0.15f;
     float maxMoveDistance = 2.5f;
     float maxMoveHeight = 4f;
     float minMoveHeight = 1f;
-    float holdHeight = 2.5f;
+    float holdHeight = 2f;
 
     float mouseSens = 100f;
     float xRotation = 0f;
@@ -54,24 +53,7 @@ public class ItemController : MonoBehaviour
                 hit = maxMoveDistance;
 
                 targetPos = ray.GetPoint(hit);
-                //targetPos.y -= adjustHeight;
-/*
-                if (!fly) {
 
-                    if (targetPos.y > maxMoveHeight) {
-
-                        targetPos.y = maxMoveHeight;
-
-                    }
-
-                    else if (targetPos.y < minMoveHeight) {
-
-                        targetPos.y = minMoveHeight;
-
-                    }
-s
-                }
-                */
                 if (Input.GetKey(KeyCode.R)) {
 
                     mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
@@ -148,4 +130,5 @@ s
         }
 
     }
+
 }
