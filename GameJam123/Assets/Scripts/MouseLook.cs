@@ -32,15 +32,4 @@ public class MouseLook : MonoBehaviour
         player.Rotate(Vector3.up * mouseX);
     }
 
-    public float getRotationX() {
-
-        return mouseX;
-
-    }
-
-    public float getRotationY() {
-
-        return mouseY;
-
-    }
 }

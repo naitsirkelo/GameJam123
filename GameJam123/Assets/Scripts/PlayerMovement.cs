@@ -18,10 +18,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 vel;
     bool isGrounded;
 
-    void Start() {
-        
+    void Start()
+    {
         gravity *= gravityMultiplier;
-
     }
 
     // Update is called once per frame

@@ -5,16 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public int clickDistance = 3;
+    int clickDistance = 4;
     public Camera camera;
-
-    public GameObject collectable;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,9 +21,9 @@ public class PlayerController : MonoBehaviour
 
                 print("Found " + hit.transform.gameObject + " - distance: " + hit.distance);
 
-                if (hit.transform.gameObject.name == "Collectable") {
+                if (hit.transform.gameObject.tag == "Collectable") {
 
-                    collectable.GetComponent<ItemController>().pickUp_drop();
+                    hit.transform.gameObject.GetComponent<ItemController>().pickUp_drop();
 
                 }
 
