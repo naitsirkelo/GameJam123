@@ -64,6 +64,6 @@ public class NpcMovement : MonoBehaviour
         vel.y += gravity * Time.deltaTime;
 
         controller.Move(vel * Time.deltaTime);
-        
+
     }
 }

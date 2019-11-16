@@ -26,10 +26,23 @@ public class MouseLook : MonoBehaviour
         mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, 1f, 65f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        player.Rotate(Vector3.up * mouseX);
+        if (Input.GetKeyUp(KeyCode.R)) {
+
+            xRotation = 0f;
+            mouseX = 0f;
+            mouseY = 0f;
+
+        }
+
+        if (!Input.GetKey(KeyCode.R)) {
+
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            player.Rotate(Vector3.up * mouseX);
+
+        }
+
     }
 
 }

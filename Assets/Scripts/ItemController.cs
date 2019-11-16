@@ -13,12 +13,9 @@ public class ItemController : MonoBehaviour
 
     bool pickedUp;
     bool npcPickedUp;
-    public bool fly;
 
     Vector3 targetPos;
-    Vector3 sizeVector;
 
-    float changeFactor = 0.30f;
     float speed = 15f;
     float adjustHeight = 0.15f;
     float maxMoveDistance = 2.5f;
@@ -26,15 +23,19 @@ public class ItemController : MonoBehaviour
     float minMoveHeight = 1f;
     float holdHeight = 2.5f;
 
+    float mouseSens = 100f;
+    float xRotation = 0f;
+    float zRotation = 0f;
+    float mouseX;
+    float mouseY;
+
     // Start is called before the first frame update
     void Start()
     {
 
         pickedUp = false;
         npcPickedUp = false;
-        fly = false;
         rb = GetComponent<Rigidbody>();
-        sizeVector = new Vector3(changeFactor, changeFactor, changeFactor);
 
     }
 
@@ -53,8 +54,8 @@ public class ItemController : MonoBehaviour
                 hit = maxMoveDistance;
 
                 targetPos = ray.GetPoint(hit);
-                targetPos.y -= adjustHeight;
-
+                //targetPos.y -= adjustHeight;
+/*
                 if (!fly) {
 
                     if (targetPos.y > maxMoveHeight) {
@@ -68,6 +69,21 @@ public class ItemController : MonoBehaviour
                         targetPos.y = minMoveHeight;
 
                     }
+s
+                }
+                */
+                if (Input.GetKey(KeyCode.R)) {
+
+                    mouseX = Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
+                    mouseY = Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+
+                    xRotation += mouseY;
+                    xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+                    zRotation -= mouseX;
+                    zRotation = Mathf.Clamp(90f, -90f, zRotation);
+
+                    transform.localRotation = Quaternion.Euler(xRotation, zRotation, 0f);
 
                 }
 
@@ -93,13 +109,11 @@ public class ItemController : MonoBehaviour
 
             rb.useGravity = false;
             rb.isKinematic = true;
-            transform.localScale -= sizeVector;
 
         } else {
 
             rb.useGravity = true;
             rb.isKinematic = false;
-            transform.localScale += sizeVector;
 
         }
 

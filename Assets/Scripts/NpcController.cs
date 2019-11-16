@@ -16,7 +16,7 @@ public class NpcController : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.tag == "Collectable") {
-            Debug.Log("Hit ball");
+            
             hit.gameObject.GetComponent<ItemController>().npc_pickUp(transform);
 
         }
