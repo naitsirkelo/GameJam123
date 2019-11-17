@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpawnItems : MonoBehaviour
 {
 
-    public GameObject item;
+    public GameObject itemCollectible;
+    public GameObject itemKey;
 
 
     // Start is called before the first frame update
@@ -15,7 +17,6 @@ public class SpawnItems : MonoBehaviour
 
         //Add spawn positions for collectibles
         positions.Add(new Vector3(16.98f, 1.16f, 164.55f));
-        positions.Add(new Vector3(3.02f, 4.75f, -4.04f));
         positions.Add(new Vector3(-304.34f, 0.901f, 143.013f));
         positions.Add(new Vector3(-340.19f, 2.111f, 100.929f));
         positions.Add(new Vector3(-331.61f, 3.158f, 32.518f));
@@ -39,12 +40,18 @@ public class SpawnItems : MonoBehaviour
         positions.Add(new Vector3(-334.876f, 0.35f, -83.729f));
         positions.Add(new Vector3(-297.2498f, 2.49f, 415.475f));
 
-
-
+        System.Random random = new System.Random();
+        int keyNumb = random.Next(positions.Count);
 
         int x = 0;
         for(int i = 0; i < positions.Count; i++) {
-            Instantiate(item, positions[i], Quaternion.identity);
+            if(i == keyNumb) {
+                var keyObj = Instantiate(itemKey, positions[i], Quaternion.identity);
+                keyObj.GetComponent<Renderer>().material.color = Color.blue;
+                Debug.Log("Key at: " + positions[i]);
+            } else {
+            Instantiate(itemCollectible, positions[i], Quaternion.identity);
+            }
         }
     }
 
