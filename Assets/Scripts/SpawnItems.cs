@@ -28,6 +28,17 @@ public class SpawnItems : MonoBehaviour
         positions.Add(new Vector3(-54.97f, 3.255f, -198.06f));
         positions.Add(new Vector3(-564.9f, 4.52f, 42.014f));
         positions.Add(new Vector3(-122.427f, 5.79f, -220.051f));
+        positions.Add(new Vector3(-210.028f, 6.8044f, -157.0f));
+        positions.Add(new Vector3(-307.228f, 4.187f, -21.959f));
+        positions.Add(new Vector3(-121.445f, 45.051f, 467.867f));
+        positions.Add(new Vector3(-139.98f, 49.643f, 455.031f));
+        positions.Add(new Vector3(100.343f, 107.964f, -8.247f));
+        positions.Add(new Vector3(-78.753f, 4.273f, -30.758f));
+        positions.Add(new Vector3(-90.146f, 0.27f, -15.695f));
+        positions.Add(new Vector3(-275.033f, 1.457f, -164.965f));
+        positions.Add(new Vector3(-334.876f, 0.35f, -83.729f));
+        positions.Add(new Vector3(-297.2498f, 2.49f, 415.475f));
+
 
 
 
